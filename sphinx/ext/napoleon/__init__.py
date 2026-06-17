@@ -290,6 +290,7 @@ class Config:
     napoleon_attr_annotations: bool
 
     if TYPE_CHECKING:
+
         def __getattr__(self, name: str) -> Any: ...
 
     _config_values: Sequence[tuple[str, bool | None, _ConfigRebuild, Set[type]]] = (
