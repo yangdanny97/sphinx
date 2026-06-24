@@ -27,12 +27,12 @@ class _Sentinel:
     def __or__(self, other: object) -> _SpecialForm:
         from typing import Union
 
-        return Union[self, other]  # NoQA: UP007  # ty: ignore[invalid-type-form, invalid-return-type]
+        return Union[self, other]  # NoQA: UP007  # pyrefly: ignore
 
     def __ror__(self, other: object) -> _SpecialForm:
         from typing import Union
 
-        return Union[other, self]  # NoQA: UP007  # ty: ignore[invalid-type-form, invalid-return-type]
+        return Union[other, self]  # NoQA: UP007  # pyrefly: ignore
 
     def __getstate__(self) -> NoReturn:
         msg = f'Cannot pickle {self._name}'
@@ -64,6 +64,7 @@ if TYPE_CHECKING:
         ALL = enum.auto()
 
         def __contains__(self, item: object) -> Literal[True]: return True
+        # pyrefly: ignore [bad-return]
         def __add__(self, other: object) -> Self: pass
     type ALL_T = Literal[_AllTC.ALL]
     ALL: Final[ALL_T] = _AllTC.ALL
