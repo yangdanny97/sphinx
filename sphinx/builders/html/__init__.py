@@ -1252,6 +1252,7 @@ class StandaloneHTMLBuilder(Builder):
         try:
             output_path.write_text(
                 output,
+                # pyrefly: ignore [bad-argument-type]
                 encoding=ctx['encoding'],
                 errors='xmlcharrefreplace',
             )
